@@ -4,74 +4,74 @@
     {
         static void Main(string[] args)
         {
-            // Dry ==> Don't Repeat Your Self
+           //Create Object 
+           Car toyota = new Car();
+            toyota.Color = "Red";
+            toyota.Model = "Toyota";
+            toyota.price = 100;
 
+            Car ford = new Car();
 
-            // Procedural Programming ===> البرمجه الاجرائيه يعنى لو فى سطور بتنفذها ورا بعض بترجع تتابع علشان تصلح الحته دى  تتابع من السطور البرمجية بنفذها سطر سطر  
+            ford.Start();
 
-            //Class: ---> is a bluePrint or Template which is created the object based on it ."القالب اللى هحط فيها موصفات العربية اللى بالنيابة عنها اقدر انشئ كائن من خلاله"
+            ford.Stop();
 
-
-
-            // Car 1
-            string CarModel = "Toyota";
-            int CarYear = 2002;
-            double CarPrice = 100000;
-
-            //Car 2
-            string CarModel2 = "Honda";
-            int CarYear2 = 2010;
-            double CarPrice2 = 500000;
-
-            //Problems 
-            // 1. Repeat your self
-            //2. No Organize 
-            //3. No Structure
-            //4. No Maintainable
-
-
-            //Using OOP
-
-            //1. Create Class Car
-
-            //2. Create the Object from Class Car
-
-            //Object  => Instance of the Class(نموذج  من ال class ده)
-
-            Car car01 = new Car();   //New Object 
-
-            car01.CarModel = "Toyota";
-            car01.CarYear = 2002;
-            car01.CarPrice = 100000;
-
-            Car car02 = new Car();   //New Object 
-
-            car02.CarModel = "Honda";
-            car02.CarYear = 2010;
-            car02.CarPrice = 500000;
-
-            // Make Clear Structure
-            // Apply Dry => Don't Repeat Your Self
-            //Resizability
-
-
-
-
-
+            ford.Year = 100;
         }
     }
-    // New Class
+     
 
+    // Public ==> AccessModifier -- with Select Visiability for class
     public class Car
     {
-        //Fields  -- Attributes ==> المواصفات اللى موجوده فى ال class
-        public string CarModel { get; set; }
-        public int CarYear { get; set; }
-        public double CarPrice { get; set; }
-        public string Color { get; set; }
 
-        // طب أزاى هعمل عربية جديدة هنا بقى يجى دور ال  ==>  object 
+        // Class Members 
+        //1. Fields => (color, model, price)
+        //2. Methods (behaviours .. Move .. Stop .. Brake)
+        //3. Properties (Smart Fields  - Can control data)
+
+        //- Define Field
+        public string Color;
+        public string Model;
+        public double price;
+
+        private int _Year; //private field
+
+
+        //Methods 
+        public void Start()
+        {
+
+        }
+
+        public void Stop()
+        {
+            //Logic
+            Console.WriteLine("The Car stopped");
+        }
+
+        //Properties (Controlled  Access)
+        public int Year
+        {
+            get
+            {
+                if(_Year == 0)
+                {
+                    return 0;
+                }
+                return _Year; //Arrive for private field
+            }
+
+            set
+            {         
+                // Logic
+
+                _Year = value;
+            }
+
+        }
+
+
     }
-
 
 }
