@@ -4,57 +4,48 @@
     {
         static void Main(string[] args)
         {
-          House house = new House(); //Object Creation / Instantion
+        //Access Modifier => Control visibility for Members
 
-           // House house01 = new House(10000);
+            // Classes, Members(Fields, Methods, Properties)
 
-            //  Console.WriteLine(house01.Price);
+            //Public : Visibility Outside Class
+            //Private : Within class
 
-            //  Constructor ==> المنشئ الذى ينشئ الاشياء
+            //Default Access Modifier in class   => Private
 
-            //  Console.WriteLine(house.Color);
+            // internal , protected
 
-            House house05 = new House(); //Object Creation / Instantion
 
-            Console.WriteLine(house05);
 
         }
 
 
     }
      
-    public  class House
+   
+    public class House
     {
-        public string Color;
-        public int Price;
-        public int NumberOfRooms;
-
-        //1. Default Constructor
-
-        //2. parameterized Constructor
-
-
-        //1. Default Constructor
-
-        //Constructor Chaining 
-        public House() : this(10000)
+        int Area;
+        public int GetRooms()
         {
-            NumberOfRooms = 3;
+            Villa newVilla = new Villa();
+            newVilla.GetRoomsVilla();
+            return 3;
         }
-
-
-        //2. Parameterized Constructor ==> Take Parameteries
-        public House(int price)
-        {
-            Price = price;
-        }
-
-
-
     }
-    
 
 
     
+    public class Villa
+    {     
+        //Fields
+        public int AreaVilla;
+
+        //Method
+        public int GetRoomsVilla()
+        {
+            return 3;
+        }
+    }
     
 }
