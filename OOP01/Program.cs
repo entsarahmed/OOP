@@ -4,74 +4,57 @@
     {
         static void Main(string[] args)
         {
-           //Create Object 
-           Car toyota = new Car();
-            toyota.Color = "Red";
-            toyota.Model = "Toyota";
-            toyota.price = 100;
+          House house = new House(); //Object Creation / Instantion
 
-            Car ford = new Car();
+           // House house01 = new House(10000);
 
-            ford.Start();
+            //  Console.WriteLine(house01.Price);
 
-            ford.Stop();
+            //  Constructor ==> المنشئ الذى ينشئ الاشياء
 
-            ford.Year = 100;
+            //  Console.WriteLine(house.Color);
+
+            House house05 = new House(); //Object Creation / Instantion
+
+            Console.WriteLine(house05);
+
         }
+
+
     }
      
-
-    // Public ==> AccessModifier -- with Select Visiability for class
-    public class Car
+    public  class House
     {
-
-        // Class Members 
-        //1. Fields => (color, model, price)
-        //2. Methods (behaviours .. Move .. Stop .. Brake)
-        //3. Properties (Smart Fields  - Can control data)
-
-        //- Define Field
         public string Color;
-        public string Model;
-        public double price;
+        public int Price;
+        public int NumberOfRooms;
 
-        private int _Year; //private field
+        //1. Default Constructor
+
+        //2. parameterized Constructor
 
 
-        //Methods 
-        public void Start()
+        //1. Default Constructor
+
+        //Constructor Chaining 
+        public House() : this(10000)
         {
-
+            NumberOfRooms = 3;
         }
 
-        public void Stop()
+
+        //2. Parameterized Constructor ==> Take Parameteries
+        public House(int price)
         {
-            //Logic
-            Console.WriteLine("The Car stopped");
+            Price = price;
         }
 
-        //Properties (Controlled  Access)
-        public int Year
-        {
-            get
-            {
-                if(_Year == 0)
-                {
-                    return 0;
-                }
-                return _Year; //Arrive for private field
-            }
-
-            set
-            {         
-                // Logic
-
-                _Year = value;
-            }
-
-        }
 
 
     }
+    
 
+
+    
+    
 }
