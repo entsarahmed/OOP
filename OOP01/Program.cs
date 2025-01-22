@@ -4,70 +4,73 @@ namespace OOP01
 {
     internal class Program
     {
+
         static void Main(string[] args)
         {
-            //**** OOP Principles
-            //- Abstraction
-            //- Polymorphism
-            //- Inheritance
-            //- Encapsulation
+            Dog dog01 = new Dog();
+            dog01.weight=100;
+            dog01.name ="roy";
+            dog01.Eat();
 
-            Person person01 = new Person();
+            Elephant e1 = new Elephant();
+            e1.weight=1000;
 
-            person01.Name = "Ali";
-
-            person01.Age = 15;
-
-            Console.WriteLine(person01.Name);
-            Console.WriteLine(person01.Age);
-           
+            e1.Eat();
         }
-
-
     }
 
-    class Person
+    // Base Class, Parent Class, Super Class 
+
+    class Animal
     {
-        //Binding & hiding
+        public string name;
+        public int weight;
 
-        private string _name;
-
-
-        public void Talk()
+        public virtual void Eat()
         {
-
+            Console.WriteLine("Is eating ");
         }
+    }
+  
+    //Derived Classes 
 
-        public string Name
+    class Dog : Animal
+    {
+
+        public override void Eat()
         {
-            //Logic
-            get
-            { 
-                return _name; 
-            }
-            set {
-                if ( value == "Ali")
-                {
-                    Console.WriteLine("can't set nan with Ali, Try another Name");
-                }
-                else
-                {
-                    _name = value;
-                }
-            }
+            Console.WriteLine("Dog is eating");
         }
-
-
-        //Automatic Property
-        public int Age
+        public void Bark()
         {
-            get;
-            set;
+            Console.WriteLine("dog is barking");
         }
 
     }
+    class Elephant : Animal
+    {
+        public override void Eat()
+        {
+            Console.WriteLine("Elephant is eating");
+        }
+        public void WalkingSlowly()
+        {
+            Console.WriteLine("dog is barking");
+        }
+        
+    }
 
+    //sealed  ==> أنا كده بفهم الديفلوبر اللى هيجى إن ممنوع يشتق أو يورث من ال class ده
+    sealed class Garden //can't derive  From sealed type of "garden"  ==> No consider base class
+    {//No Make Child class ==> protect special Architecture --> Increase Optimization or performance with class
+        public int Area;
+        public string Address;
 
+    }
+    class Garden02
+    {
+       
 
+    }
 
 }
