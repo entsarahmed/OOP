@@ -1,51 +1,73 @@
-﻿namespace OOP01
+﻿using System.Runtime.InteropServices;
+
+namespace OOP01
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-        //Access Modifier => Control visibility for Members
+            //**** OOP Principles
+            //- Abstraction
+            //- Polymorphism
+            //- Inheritance
+            //- Encapsulation
 
-            // Classes, Members(Fields, Methods, Properties)
+            Person person01 = new Person();
 
-            //Public : Visibility Outside Class
-            //Private : Within class
+            person01.Name = "Ali";
 
-            //Default Access Modifier in class   => Private
+            person01.Age = 15;
 
-            // internal , protected
-
-
-
+            Console.WriteLine(person01.Name);
+            Console.WriteLine(person01.Age);
+           
         }
 
 
     }
-     
-   
-    public class House
+
+    class Person
     {
-        int Area;
-        public int GetRooms()
+        //Binding & hiding
+
+        private string _name;
+
+
+        public void Talk()
         {
-            Villa newVilla = new Villa();
-            newVilla.GetRoomsVilla();
-            return 3;
+
         }
+
+        public string Name
+        {
+            //Logic
+            get
+            { 
+                return _name; 
+            }
+            set {
+                if ( value == "Ali")
+                {
+                    Console.WriteLine("can't set nan with Ali, Try another Name");
+                }
+                else
+                {
+                    _name = value;
+                }
+            }
+        }
+
+
+        //Automatic Property
+        public int Age
+        {
+            get;
+            set;
+        }
+
     }
 
 
-    
-    public class Villa
-    {     
-        //Fields
-        public int AreaVilla;
 
-        //Method
-        public int GetRoomsVilla()
-        {
-            return 3;
-        }
-    }
-    
+
 }
