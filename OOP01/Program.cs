@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 
 namespace OOP01
 {
@@ -7,60 +8,47 @@ namespace OOP01
 
         static void Main(string[] args)
         {
+            ClothingShop c1 = new ClothingShop();
+            c1.Open();
+            c1.CloseThestore();
 
-            Animal dog = new Dog();   //Reference from Parent refer to object from child ==> run Principle Polymorphism 
-            dog.MakeSound();
-            Animal cat = new Cat();
-            cat.MakeSound();
-
+            FoodShop f1 = new FoodShop();
+            f1 .Open();
+             Shop s = new ClothingShop ();
 
         }
     }
 
-    // Base Class, Parent Class, Super Class 
-
-    /// Polymorphism  => Support Inheritance
-
-    // Poly = Multiple - Many   * Morphism => Form
-    // Multiple Forms  =>أشكال متعدده => أعامل objectمختلفة على أنها نفس  object
-
-    class Animal //Base Class
+    abstract class Shop  //Abstract => Not Fully Implemented with future class to come in future to complete this class
+        //  is a container with common code among classes
+        // can't create object from Abstract Class
     {
-        public virtual void MakeSound()
-        {
-            Console.WriteLine("Animal Make Sound");
-        }
-       
-    }
-    class Dog : Animal
-    {
-      public override void MakeSound()
-        {
-            Console.WriteLine("Dog Make Sound");
-        }
-    }
-    class Cat : Animal
-    {
-        public override void MakeSound()
-        {
-            Console.WriteLine("Cat Make Sound");
-        }
-    }
-    class Calculator
-    {
-        public int Add(int a, int b)
-        {
-            return a + b;
-        }
+        public abstract void Open();  //Abstract Method 
 
-        public double Add(double a, double b)   //Change Signature with Method
+        public void CloseThestore()
         {
-            return a + b;
-        }
-        public double Add(double a, double b, double c)   //Change Signature with Method
-        {
-            return a + b + c;
+            Console.WriteLine("Store closed");
         }
     }
 
+    class ClothingShop : Shop
+    {
+        public override void Open()
+        {
+            Console.WriteLine("Clothing shop open");
+        }
+
+        public void SellJeans()
+        {
+            Console.WriteLine("Clothing shop open");
+        }
+    }
+
+    class FoodShop : Shop
+    {
+        public override void Open()
+        {
+            Console.WriteLine( " Food shop open");
+        }
+    }
 }
