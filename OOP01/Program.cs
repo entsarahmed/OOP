@@ -10,7 +10,7 @@ namespace OOP01
         {
             ClothingShop c1 = new ClothingShop();
             c1.Open();
-            c1.CloseThestore();
+            c1.CloseTheStore();
 
             FoodShop f1 = new FoodShop();
             f1 .Open();
@@ -25,7 +25,7 @@ namespace OOP01
     {
         public abstract void Open();  //Abstract Method 
 
-        public void CloseThestore()
+        public void CloseTheStore()
         {
             Console.WriteLine("Store closed");
         }
