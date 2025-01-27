@@ -8,47 +8,54 @@ namespace OOP01
 
         static void Main(string[] args)
         {
-            ClothingShop c1 = new ClothingShop();
-            c1.Open();
-            c1.CloseTheStore();
+            IShape rec1 = new Rectangle();
+            IShape c1 = new Circle();
 
-            FoodShop f1 = new FoodShop();
-            f1 .Open();
-             Shop s = new ClothingShop ();
+            rec1.CalculateArea();
+            c1.CalculateArea();
 
         }
     }
 
-    abstract class Shop  //Abstract => Not Fully Implemented with future class to come in future to complete this class
-        //  is a container with common code among classes
-        // can't create object from Abstract Class
+   
+    // Contruct >>>>>>>>> Interface  >>>> Abstraction
+    public interface IShape // is a code contruct or signature --> Write inside interface signature for property or signature for Method or Default Implemented property or  Default Implemented Method or signature for Method
+        // can't create object ==> Just Only Stucture
+        //Default Access Modifier ==> public
     {
-        public abstract void Open();  //Abstract Method 
+        double CalculateArea();   // Method Signature
+    }
+   
 
-        public void CloseTheStore()
+    //Rectangle, Circle, Square 
+
+    public abstract class Shape
+    {
+        public abstract double CalculateArea();
+        //Complete Method
+        public string GetName()
         {
-            Console.WriteLine("Store closed");
+            return "Rec";
         }
     }
 
-    class ClothingShop : Shop
+    public class Rectangle : IShape
     {
-        public override void Open()
-        {
-            Console.WriteLine("Clothing shop open");
-        }
+        public double Length { get; set; }
+        public double Width { get; set; }
 
-        public void SellJeans()
+        double IShape.CalculateArea()
         {
-            Console.WriteLine("Clothing shop open");
+            return Length * Width;
         }
     }
 
-    class FoodShop : Shop
+    public class Circle : IShape
     {
-        public override void Open()
+        public double Radius { get; set; }
+        public double CalculateArea()
         {
-            Console.WriteLine( " Food shop open");
+            return Radius * Radius * 3.14;
         }
     }
 }
