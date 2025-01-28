@@ -8,54 +8,39 @@ namespace OOP01
 
         static void Main(string[] args)
         {
-            IShape rec1 = new Rectangle();
-            IShape c1 = new Circle();
-
-            rec1.CalculateArea();
-            c1.CalculateArea();
+            
 
         }
     }
 
-   
-    // Contruct >>>>>>>>> Interface  >>>> Abstraction
-    public interface IShape // is a code contruct or signature --> Write inside interface signature for property or signature for Method or Default Implemented property or  Default Implemented Method or signature for Method
-        // can't create object ==> Just Only Stucture
-        //Default Access Modifier ==> public
+
+    //Assosiation (uses a) LifeTime
+    //Aggregation (has a) 1 to  1 ....1 to many
+    //Composition (owns a)   ==> Strong Relationship
+
+    class Department
     {
-        double CalculateArea();   // Method Signature
+        public string Name { get; set; }
     }
-   
-
-    //Rectangle, Circle, Square 
-
-    public abstract class Shape
+    class Company
     {
-        public abstract double CalculateArea();
-        //Complete Method
-        public string GetName()
-        {
-            return "Rec";
-        }
+        public string Name { get; set; }
+        public Department Department { get; set; }   //Aggregation (has a)
+    }
+        class Employee
+    {
+        public string Name { get; set; }
+        public Department Department { get; set; }  //Assosiation (uses a)
     }
 
-    public class Rectangle : IShape
-    {
-        public double Length { get; set; }
-        public double Width { get; set; }
 
-        double IShape.CalculateArea()
-        {
-            return Length * Width;
-        }
+    class Engine
+    {
+        public string Model { get; set; }
     }
-
-    public class Circle : IShape
+    class Car
     {
-        public double Radius { get; set; }
-        public double CalculateArea()
-        {
-            return Radius * Radius * 3.14;
-        }
+        public string Brand { get; set; }
+        public Engine Engine { get; set; } // Composition (owns  a)  
     }
 }
