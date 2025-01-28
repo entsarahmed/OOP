@@ -8,55 +8,63 @@ namespace OOP01
 
         static void Main(string[] args)
         {
-            var f = (int)DaysOfTheWeeks.Friday;
-            int x = 5;
-            var z = (DaysOfTheWeeks)x;
+            // Calculator calc1 = new Calculator();  //Instance from Object
+            //Console.WriteLine(calc1.Name);
 
-            Console.WriteLine(f);
-            Console.WriteLine(z);
+            //Console.WriteLine(Calculator.Name);
+            //int result = Calculator.AddNumbers(5,10);
+            //Console.WriteLine(result);
+            Car.NumberOfCalls = 3;
 
-            string input = Console.ReadLine();
-            int i = Convert.ToInt32(input);
-            var enumInput = (TrafficLights)i;
+            Car car01 = new Car();
+            Car car02 = new Car();
+            Car car03 = new Car();
 
-            switch(enumInput)
-            {
-                case TrafficLights.Green:
-                    Console.WriteLine("Go");
-                    break;
-                case TrafficLights.Yellow:
-                    Console.WriteLine("Go");
-                    break;
-                case TrafficLights.Red:
-                    Console.WriteLine("Go");
-                    break;
-                default:
-                    Console.WriteLine("Ivalid number");
-                    break;
-            }
+
+            // Instance for the first time only
+            //Access Static Member (Fields or Methods)
+
         }
 
 
     }
-     
-    //Enums => Enumeration --> ValueType - Collection of Constants -- contain Fixed Value Like days of week or Gender
-    // Readabilty is very Easy => is consider integer values
+   //Static Types   ==> Among Access Modifier and Class
+   //Static Class => No instance -- No Create Object   
+   //It's Necessary All Members to be Static
+   //You can enable direct Access without create object (instance) Across Class Name itself
+   //you can call Method without object
 
-    enum DaysOfTheWeeks
+    public static class Calculator
     {
-        Monday, 
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday,
-        Sunday
+        public static string Name = "Arithmetic";
+        public static int AddNumbers(int a, int b) 
+        { 
+        return a + b;
+        }
     }
-    enum TrafficLights
+
+    //Static Class  ---- Static Field ----- Static Constructor ----- Static Method 
+
+    //Static Constructor ==> No Access Modifier
+    public class Car
     {
-        Green = 1,
-        Yellow,
-        Red
+        public static int NumberOfCalls = 0; // throw object not arrived for static field
+        public Car()  // Constructor -- make calling first what work instance or create object 
+        {
+            Console.WriteLine("Normal Constructor Calls");
+        }
+
+        static Car()
+        {
+            Console.WriteLine("Static Constructor Calls");
+        }
+    
+        // No Use None Static Field inside Static Method
+        //Static Talk Static
+    public static void Drive()
+        {
+            Console.WriteLine(NumberOfCalls);
+        }
     }
 
 }
