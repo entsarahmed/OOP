@@ -8,39 +8,46 @@ namespace OOP01
 
         static void Main(string[] args)
         {
-            
+            Point02 point01 = new Point02(5,10);
+            Point02 point011;
+            Console.WriteLine(point01.x);
+            point011 = point01;
+            point01.x =30;
+            Console.WriteLine(point011.x);
+
 
         }
     }
 
+    // Struct => Structure --> ValueType -- Store Collection of Data
+    // No support inheritance   --  high performance -- Support Inheritance
 
-    //Assosiation (uses a) LifeTime
-    //Aggregation (has a) 1 to  1 ....1 to many
-    //Composition (owns a)   ==> Strong Relationship
+    // Data Types  
+    //- Value Types  == > is very fast => location in Memory // Store in stack
+    // (Simple Types - Enum Types - Struct Types - Nullable Types)   
+    //- Reference Types //=> Store in stack and Heap
+    //(Class Types - Interface Type - Array Types - Delegate Types)
+    //- Pointer Types
 
-    class Department
+    public struct Point02
     {
-        public string Name { get; set; }
+        public int x;
+        public int y;
+        public Point02(int x, int y)
+        {
+            this.x= x;
+            this.y=y;
+        }
+        public void MovePoint()
+        {
+            x=x+1;
+        }
     }
-    class Company
+
+    public class Point03
     {
-        public string Name { get; set; }
-        public Department Department { get; set; }   //Aggregation (has a)
-    }
-        class Employee
-    {
-        public string Name { get; set; }
-        public Department Department { get; set; }  //Assosiation (uses a)
+
     }
 
 
-    class Engine
-    {
-        public string Model { get; set; }
-    }
-    class Car
-    {
-        public string Brand { get; set; }
-        public Engine Engine { get; set; } // Composition (owns  a)  
-    }
 }
