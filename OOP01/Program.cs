@@ -8,46 +8,55 @@ namespace OOP01
 
         static void Main(string[] args)
         {
-            Point02 point01 = new Point02(5,10);
-            Point02 point011;
-            Console.WriteLine(point01.x);
-            point011 = point01;
-            point01.x =30;
-            Console.WriteLine(point011.x);
+            var f = (int)DaysOfTheWeeks.Friday;
+            int x = 5;
+            var z = (DaysOfTheWeeks)x;
 
+            Console.WriteLine(f);
+            Console.WriteLine(z);
 
+            string input = Console.ReadLine();
+            int i = Convert.ToInt32(input);
+            var enumInput = (TrafficLights)i;
+
+            switch(enumInput)
+            {
+                case TrafficLights.Green:
+                    Console.WriteLine("Go");
+                    break;
+                case TrafficLights.Yellow:
+                    Console.WriteLine("Go");
+                    break;
+                case TrafficLights.Red:
+                    Console.WriteLine("Go");
+                    break;
+                default:
+                    Console.WriteLine("Ivalid number");
+                    break;
+            }
         }
+
+
     }
+     
+    //Enums => Enumeration --> ValueType - Collection of Constants -- contain Fixed Value Like days of week or Gender
+    // Readabilty is very Easy => is consider integer values
 
-    // Struct => Structure --> ValueType -- Store Collection of Data
-    // No support inheritance   --  high performance -- Support Inheritance
-
-    // Data Types  
-    //- Value Types  == > is very fast => location in Memory // Store in stack
-    // (Simple Types - Enum Types - Struct Types - Nullable Types)   
-    //- Reference Types //=> Store in stack and Heap
-    //(Class Types - Interface Type - Array Types - Delegate Types)
-    //- Pointer Types
-
-    public struct Point02
+    enum DaysOfTheWeeks
     {
-        public int x;
-        public int y;
-        public Point02(int x, int y)
-        {
-            this.x= x;
-            this.y=y;
-        }
-        public void MovePoint()
-        {
-            x=x+1;
-        }
+        Monday, 
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
     }
-
-    public class Point03
+    enum TrafficLights
     {
-
+        Green = 1,
+        Yellow,
+        Red
     }
-
 
 }
