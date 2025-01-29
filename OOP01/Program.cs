@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using System.Security.Cryptography;
+﻿using System.IO;
 
 namespace OOP01
 {
@@ -8,63 +7,56 @@ namespace OOP01
 
         static void Main(string[] args)
         {
-            // Calculator calc1 = new Calculator();  //Instance from Object
-            //Console.WriteLine(calc1.Name);
+            #region Read File  - 2 Ways ? the first way is the best?
 
-            //Console.WriteLine(Calculator.Name);
-            //int result = Calculator.AddNumbers(5,10);
-            //Console.WriteLine(result);
-            Car.NumberOfCalls = 3;
+            /*   StreamReader Sr = new StreamReader(@"F:\route.net\course\C# Practice\Test.txt");
 
-            Car car01 = new Car();
-            Car car02 = new Car();
-            Car car03 = new Car();
+            //string line;
+
+            //while( (line = Sr.ReadLine()) != null)
+            //{
+            //    Console.WriteLine(line);
+            //}*/
+
+            /*  string[] result  = File.ReadLines(@"F:\route.net\course\C# Practice\Test.txt").ToArray<string>();
+               foreach (var line in result) 
+                   Console.WriteLine(line);*/
+
+            #endregion
 
 
-            // Instance for the first time only
-            //Access Static Member (Fields or Methods)
+            #region Write New Log File in Document type of text?
+            string FilePath = @"F:\route.net\course\C# Practice\newFile.txt";
+
+            // 1.  select the store File lwrite in file line by line 
+            /*StreamWriter writer = new StreamWriter(FilePath);
+            for (int i = 0; i<5; i++)
+                writer.WriteLine("File input Video");
+            writer.Close();*/
+
+            //2. big Text write  all it once only
+            string contents = "\nNew Text 4";
+            //File.WriteAllText(FilePath, contents);
+
+           // File.AppendAllText(FilePath, contents);
+            
+            // Check on Exit file?
+            if (File.Exists(FilePath))
+                Console.WriteLine("File exist Already");
+
+
+
+
+            #endregion
+
 
         }
 
 
     }
-   //Static Types   ==> Among Access Modifier and Class
-   //Static Class => No instance -- No Create Object   
-   //It's Necessary All Members to be Static
-   //You can enable direct Access without create object (instance) Across Class Name itself
-   //you can call Method without object
-
-    public static class Calculator
-    {
-        public static string Name = "Arithmetic";
-        public static int AddNumbers(int a, int b) 
-        { 
-        return a + b;
-        }
-    }
-
-    //Static Class  ---- Static Field ----- Static Constructor ----- Static Method 
-
-    //Static Constructor ==> No Access Modifier
-    public class Car
-    {
-        public static int NumberOfCalls = 0; // throw object not arrived for static field
-        public Car()  // Constructor -- make calling first what work instance or create object 
-        {
-            Console.WriteLine("Normal Constructor Calls");
-        }
-
-        static Car()
-        {
-            Console.WriteLine("Static Constructor Calls");
-        }
-    
-        // No Use None Static Field inside Static Method
-        //Static Talk Static
-    public static void Drive()
-        {
-            Console.WriteLine(NumberOfCalls);
-        }
-    }
+    // Files?
+   //أزاى أقرأ فايل ؟
+   // أول حاجة لازم أعرف مكانه فين
+   //Stream ==> Collection of Binary Data ==> Flow From Data ==> Flow From Bytes
 
 }
