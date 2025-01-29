@@ -1,51 +1,65 @@
 ﻿using System.IO;
-using EmployeeLibrary;
 
 
 namespace OOP01
 {
     internal class Program
     {
+        //Object Intialization
 
         static void Main(string[] args)
         {
-           //Name Space : -  هيكل تنظيمي للكود بتاعى  -- is a container 
-           // forbidden the Name Conflicts
-           //using / can skip the fully qualified in the Name Space -- and write Direct Class Name 
-         ///*  EmployeeLibrary.*/Employee employee = new EmployeeLibrary.Employee();
-         //   Salary salary = new Salary();
 
-         //   EmployeeHR.Employee employeeHR = new EmployeeHR.Employee();
-         //   EmployeeLibrary.Employee employee1 = new EmployeeLibrary.Employee();
-       
-            Employee employee = new Employee();
+           // Rectangle rec1 = new Rectangle(10,20);
+
+            Rectangle rec1 = new Rectangle()
+            {
+                Width = 10,
+                Height = 20
+            };
+
+            rec1.Width =10;
+            rec1.Height =20;
+
+            // Console.WriteLine(rec1.CalculatePermiter());
+            Console.WriteLine(rec1.CalculatePermetier());
+
+            string x = "hello";
+            string result = x.ToFirstUpper();
+            Console.WriteLine(result);
+            string m = "ali";
+            m.ToFirstUpper().ToString();
+            Console.WriteLine(m);
+
+
         }
 
 
     }
+
+    public class Rectangle
+    {
+        public int Width { get; set; }
+        public int Height { get; set; }
+        public Rectangle()
+        {
+
+        }
+        public Rectangle(int width, int height)
+        {
+        Width = width;
+        Height = height;
+        }
+        public int CalculateArea()
+        {
+            return Width * Height;
+        }
+        public int CalculatePermiter()
+        {
+            return 2 * (Width + Height);
+        }
+    }
    
 }
 
-// Currently -> have Two Class Employee in different Name Space
-// How to Select Employee in different Name Space
 
-//namespace EmployeeLibrary
-//{
-//class Employee
-//    {
-
-//    }
-//    class Salary
-//    {
-
-//    }
-//}
-
-//namespace EmployeeHR
-//{
-//    class Employee
-//    {
-
-//    }
-
-//}
